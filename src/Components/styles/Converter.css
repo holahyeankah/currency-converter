@@ -1,0 +1,19 @@
+.swap{
+    transform:rotate(90deg);
+    cursor:pointer
+}
+.display{
+    margin-top:10px;
+    margin-bottom: 2px;
+
+}
+.light{
+    
+    width:30px;
+    margin: 0 0 65px 40px;
+};
+
+
+.case{
+    min-height:40px
+}
