@@ -40,7 +40,7 @@ class Converter extends Component{
             }
           const date=response.data.date;
 
-          const result= (response.data.rates[convertedTo] * amount).toFixed(3)
+          const result= (response.data.rates[convertedTo] * amount).toFixed(10)
           
           this.setState({currencies:currencyAr, result, date})     
         })
@@ -83,7 +83,7 @@ class Converter extends Component{
               {convertedTo !== convertedFrom &&
             <div className="align-self-center ">
             <h5 className="result-style"> {amount} <strong>{convertedFrom}</strong> = {result} <strong>{convertedTo}</strong></h5>
-            <p className="fw-bold ">{amount}{convertedTo} = {amount/result}{convertedFrom}</p>
+            <p className="fw-bold ">{amount}{convertedTo} = {amount * (amount/result).toFixed(3)}{convertedFrom}</p>
              <p className="fs-5"> As of {"  "}{date}</p>
             </div>} 
             <p className=" mt-5 mb-1">We use midmarket rates</p>                
