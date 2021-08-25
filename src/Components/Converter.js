@@ -44,12 +44,8 @@ class Converter extends Component{
           
           this.setState({currencies:currencyAr, result, date})     
         })
-
     }
-    else{
-        this.setState({result:"You can't convert same currency"})
 
-    }
     }
 
 
@@ -69,20 +65,11 @@ class Converter extends Component{
     render(){
         const{currencies, amount, convertedFrom, convertedTo , result, date}=this.state
 
-        return(    
-        <div className="card card-body bg-light text-center mt-5">
-            {convertedTo !== convertedFrom ?
-            <div className="align-self-center ">
-            <h5> {amount} <strong>{convertedFrom}</strong> is equivalent to</h5>
-    
-            <h5 className=" w-auto align-self-center case text-center text-light fw-bold p-2 rounded 
-            bg-secondary">{result}</h5> 
-            <p className="fw-bold fs-5">{convertedTo}</p> 
-            <p className="fs-5"> As of <strong>{date}</strong></p>
-            </div>
-            : <div className="fw-bold fs-4 w-50 align-self-center alert alert-danger">
-             {result}
-             </div> }
+        return(   
+            <div className=" margin-space ">
+                <h1 className="text-light fw-bold mt-2 mb-1 margin ">Xe Currency Converter</h1>
+                <p className="text-light margin-left">Check live mid-market exchange rates</p>
+        <div className="card card-body bg-light width text-center mt-5">
                       
             <div className="row">
                 
@@ -92,8 +79,14 @@ class Converter extends Component{
              <h5>Amount</h5> 
                                  
             <input className="text-center align-self-center " type="number" value={amount} onChange={this.inputChange}
-             style={{height:"50px"}} className="form-control height "/>   
-            <p className=" mt-5  mb-1">We use midmarket rates</p>                
+             style={{height:"50px"}} className="form-control height "/>  
+              {convertedTo !== convertedFrom &&
+            <div className="align-self-center ">
+            <h5 className="result-style"> {amount} <strong>{convertedFrom}</strong> = {result} <strong>{convertedTo}</strong></h5>
+            <p className="fw-bold ">{amount}{convertedTo} = {amount/result}{convertedFrom}</p>
+             <p className="fs-5"> As of {"  "}{date}</p>
+            </div>} 
+            <p className=" mt-5 mb-1">We use midmarket rates</p>                
               </div>  
              <div>
                  <h5>From</h5>
@@ -104,8 +97,8 @@ class Converter extends Component{
                           
                  </select>
                  </div>
-                 <div className="col-lg-2 col-md-2 col-sm-2 align-self-center">
-                <h1 onClick={this.handleSwap} className="swap  text-primary border border-secondary 
+                 <div className="col-lg-2 col-md-2 arrow col-sm-2 align-self-center">
+                <h1 onClick={this.handleSwap} className="swap border border-secondary 
                 w-50 rounded-circle  text-dark light">&#8595;&#8593;</h1>
                  </div>
                    
@@ -117,7 +110,7 @@ class Converter extends Component{
                   <option key={i} value={currency}> {currency}</option>))}
                                  
                   </select>
-                  <p className="mt-5  p-2 bg-secondary w-auto text-white fw-bold rounded"
+                  <p className=" convert  w-75 p-2 bg-primary w-auto text-white fw-bold rounded"
                      onClick={this.fetchCurrency}>Convert</p>  
                        
                     </label>  
@@ -125,7 +118,9 @@ class Converter extends Component{
                     </form>
                    
                     </div>
+                
                     </div>
+                    </div> 
     
         </div>
         )

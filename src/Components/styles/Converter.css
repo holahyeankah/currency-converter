@@ -1,19 +1,41 @@
 .swap{
     transform:rotate(90deg);
-    cursor:pointer
+    cursor:pointer;
+    margin-top:5%
 }
-.display{
-    margin-top:10px;
-    margin-bottom: 2px;
 
-}
 .light{
     
     width:30px;
-    margin: 0 0 65px 40px;
+    margin: 0px 0 65px 40px;
 };
-
 
 .case{
     min-height:40px
+}
+.margin{
+    margin-left: 33%;
+    margin-top:0 auto
+}
+.margin-left{
+    margin-left: 40%;
+}
+.result-style{
+    margin-top: 10%
+}
+
+.width{
+    width:65vw;
+}
+
+.margin-space{
+    margin-left:12%;
+   
+}
+.convert{
+    margin-top:170%;
+  
+}
+.arrow{
+    margin-bottom:12%
 }
